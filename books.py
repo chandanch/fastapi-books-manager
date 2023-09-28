@@ -3,7 +3,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 BOOKS = [
-    {"title": "My Dion Man", "author": "chandio", "category": "Deep Minds"},
+    {"title": "My Dillon Man", "author": "chandio", "category": "Deep Minds"},
     {"title": "Findmens Gold", "author": "Fdio", "category": "Lean"},
     {"title": "Visible Gold", "author": "Fdio", "category": "Lean"},
     {"title": "Visible Sliver", "author": "chandio", "category": "Deep Minds"},
