@@ -3,6 +3,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
+# first API
 @app.get("/healthcheck")
-def health_check():
+async def health_check():
     return {"status": "OK", "message": "Service is up!"}
