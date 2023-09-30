@@ -26,9 +26,15 @@ def get_fav_book():
     return BOOKS[1]
 
 
+# Get Books by Id using Path Param.
+# Path params are enclosed wth {<PARAM_NAME>} in the route
+# the path param name must match the parameter name in the function
 @app.get("/books/{book_id}")
 async def get_book_details(book_id: int):
     for book in BOOKS:
         if book.get("id") == book_id:
             return book
     return "Not Found"
+
+
+# Get Books By Category using Query Param
