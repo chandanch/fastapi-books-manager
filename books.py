@@ -26,6 +26,19 @@ def get_fav_book():
     return BOOKS[1]
 
 
+# Search Books by category using Query Param
+@app.get("/books/search")
+async def search_books_by_category(category: str):
+    """
+    Search books based on category or author
+    """
+    books_list = []
+    for book in BOOKS:
+        if book.get("category").casefold() == category.casefold():
+            books_list.append(book)
+    return books_list
+
+
 # Get Books by Id using Path Param.
 # Path params are enclosed wth {<PARAM_NAME>} in the route
 # the path param name must match the parameter name in the function
@@ -35,6 +48,3 @@ async def get_book_details(book_id: int):
         if book.get("id") == book_id:
             return book
     return "Not Found"
-
-
-# Get Books By Category using Query Param
