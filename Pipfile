@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 fastapi = "*"
 unicorn = {extras = ["standard"], version = "*"}
+uvicorn = {extras = ["standard"], version = "*"}
 
 [dev-packages]
 
