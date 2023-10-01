@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Body
 
 app = FastAPI()
 
@@ -51,3 +51,15 @@ async def get_book_details(book_id: int):
         if book.get("id") == book_id:
             return book
     return "Not Found"
+
+
+# Add new book
+# Use the POST HTTP method and BODY to extract the request body
+# Assign the value returned from BODY() to a function parameter
+@app.post("/books")
+async def add_book(new_book=Body()):
+    """
+    Create a new book
+    """
+    BOOKS.append(new_book)
+    return {"status": "success", "data": new_book}
