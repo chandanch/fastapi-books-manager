@@ -44,6 +44,9 @@ async def search_books_by_category(category: str):
 # the path param name must match the parameter name in the function
 @app.get("/books/{book_id}")
 async def get_book_details(book_id: int):
+    """
+    Get Books details by ID
+    """
     for book in BOOKS:
         if book.get("id") == book_id:
             return book
