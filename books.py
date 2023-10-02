@@ -75,7 +75,7 @@ async def update_book(book_id: int, book=Body()):
     """
     Update book based on ID
     """
-    for i in range(len(BOOKS)):
-        if BOOKS[i].get("id") == book_id:
+    for i, book_item in enumerate(BOOKS):
+        if book_item.get("id") == book_id:
             BOOKS[i] = book
     return {"status": "sucess", "data": book}
