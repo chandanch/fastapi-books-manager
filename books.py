@@ -66,3 +66,13 @@ async def add_book(new_book=Body()):
     """
     BOOKS.append(new_book)
     return {"status": "success", "data": new_book}
+
+
+# Update book
+# Use the same BODY() to extract the request body
+@app.put("/books/{id}")
+async def update_book(id: int, book=Body()):
+    for i in range(BOOKS):
+        if BOOKS[i].get("id") == book.get("id"):
+            BOOKS[i] = book
+    return {"status": "sucess", "data": book}
