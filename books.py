@@ -21,11 +21,17 @@ async def health_check():
 
 @app.get("/books")
 async def get_all_books():
+    """
+    returns all books
+    """
     return BOOKS
 
 
 @app.get("/books/favbooks")
 def get_fav_book():
+    """
+    returns fav book: always return the 2nd book as fav
+    """
     return BOOKS[1]
 
 
