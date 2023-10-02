@@ -70,7 +70,7 @@ async def add_book(new_book=Body()):
 
 # Update book
 # Use the same BODY() to extract the request body
-@app.put("/books/{id}")
+@app.put("/books/{book_id}")
 async def update_book(book_id: int, book=Body()):
     """
     Update book based on ID
@@ -79,3 +79,13 @@ async def update_book(book_id: int, book=Body()):
         if book_item.get("id") == book_id:
             BOOKS[i] = book
     return {"status": "sucess", "data": book}
+
+
+# Delete Book
+# use the DELETE HTTP method
+@app.delete("/books/{book_id}")
+async def delete_book(book_id: int):
+    for i, book in enumerate(BOOKS):
+        if book.get("id") == book_id:
+            BOOKS.pop(i)
+    return {"status": "Success", "id": book_id}
