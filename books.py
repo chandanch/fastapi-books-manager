@@ -1,4 +1,6 @@
 from fastapi import FastAPI, Body
+import random
+
 
 app = FastAPI()
 
@@ -32,7 +34,8 @@ def get_fav_book():
     """
     returns fav book: always return the 2nd book as fav
     """
-    return BOOKS[1]
+    random_number = random.randint(0, len(BOOKS) - 1)
+    return BOOKS[random_number]
 
 
 # Search Books by category using Query Param
