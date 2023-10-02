@@ -85,6 +85,9 @@ async def update_book(book_id: int, book=Body()):
 # use the DELETE HTTP method
 @app.delete("/books/{book_id}")
 async def delete_book(book_id: int):
+    """
+    Deletes Book by id
+    """
     for i, book in enumerate(BOOKS):
         if book.get("id") == book_id:
             BOOKS.pop(i)
